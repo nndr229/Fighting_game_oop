@@ -25,22 +25,22 @@ class Game:
 
     def start(self):
         while True:
-            choice = input(" Choose 1 for Lion, \n Choose 2 for Tiger, \n Choose 3 for Man, \n Choose 4 for Bear,\n Choose 0 for exit... \n ")
+            choice = input(" Choose 1 for Lion, \n Choose 2 for Tiger, \n Choose 3 for Wolf, \n Choose 4 for Man,\n Choose 5 for Bear,\n Choose 0 for exit... \n ")
             
             choice = int(choice)
 
             if choice == 0 :
                 break
             else:
-                comp_choice = random.choice([0,1,2,3])
 
-                # chosen_by_comp = self.players[comp_choice]
-                
-                print(f"Now your {list(self.players[choice].keys())[0]} is fighting {list(self.players[comp_choice].keys())[0]}")
+                comp_choice = random.choice([0,1,2,3,4])
 
-                if list(self.players[choice].values())[0] > list(self.players[comp_choice].values())[0]:
+                print(f"Now your {list(self.players[choice-1].keys())[0]} is fighting {list(self.players[comp_choice].keys())[0]}")
+
+                if list(self.players[choice-1].values())[0] > list(self.players[comp_choice].values())[0]:
                     print("You won!")
-                elif list(self.players[choice].values())[0] == list(self.players[comp_choice].values())[0]:
+
+                elif list(self.players[choice-1].values())[0] == list(self.players[comp_choice].values())[0]:
                     print("You tied!")
                 else:
                     print("Boohoo you lost")
